@@ -99,7 +99,7 @@ img {
 
 /* HERO */
 .hero {
-  display: grid;
+  display: flex;
   grid-template-columns: 300px minmax(0, 1fr);
   gap: 44px;
   align-items: center;

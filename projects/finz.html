@@ -296,10 +296,8 @@
         <h1 class="reveal delay-2">FINZ</h1>
 
         <p class="project-hero-sub reveal delay-3">
-          AI 챗봇을 중심으로<br />
-          <strong>키워드 기반 추천 · 종목 분석 · 투자 성향 기반 추천</strong>을
-          연결하고,<br />
-          모의투자와 피드백까지 이어지는 흐름을 설계한 금융 플랫폼
+          투자 성향 진단부터 AI 추천·종목 분석·모의투자·피드백까지<br />
+          <strong>학습과 실전이 연결되는 MZ세대 맞춤 금융 입문 플랫폼</strong>
         </p>
 
         <div class="chips reveal delay-4" style="margin-top: 18px">
@@ -383,6 +381,31 @@
         </div>
       </section>
 
+      <section class="detail-section reveal">
+        <h2>Overview.</h2>
+
+        <div class="chips">
+          <span class="chip">투자 성향 진단</span>
+          <span class="chip">AI 종목 추천</span>
+          <span class="chip">종목 분석</span>
+          <span class="chip">모의투자</span>
+          <span class="chip">포트폴리오 피드백</span>
+          <span class="chip">커뮤니티</span>
+          <span class="chip">금융 퀴즈</span>
+          <span class="chip">뉴스</span>
+        </div>
+
+        <p style="margin-top: 18px">
+          FINZ는 8명이 개발한 MZ세대 맞춤 금융 입문 플랫폼입니다. 투자 성향
+          진단부터 AI 추천, 모의투자, 커뮤니티, 금융 퀴즈까지 학습과 실전이
+          연결되는 구조로 설계했습니다.
+        </p>
+
+        <p style="margin-top: 14px">
+          저는 그 중 <strong>AI 챗봇 백엔드 전체</strong>를 담당했습니다.
+        </p>
+      </section>
+
       <!-- WHAT I DID -->
       <section class="detail-section reveal">
         <h2>What I Did.</h2>
@@ -399,33 +422,33 @@
             <span class="chip">메시지 / 결과 저장</span>
             <span class="chip">에러 로그 관리</span>
           </div>
-
-          <p style="margin-top: 14px">
-            또한 기능 단위로 역할을 나누어 개발을 진행했고, 프론트엔드와
-            연동하는 과정에서 API 요청/응답 구조를 맞추며 추천·분석 결과가
-            화면에 맞게 출력될 수 있도록 데이터 형태를 팀원들과 조율했습니다.
-          </p>
         </div>
 
         <p style="margin-top: 22px">
-          저는 챗봇 백엔드 기능을 담당하며, 사용자 입력을 의도별로 분기하고
-          <strong>
-            키워드 기반 추천, 종목 분석, 투자 성향 기반 추천, 포트폴리오 분석 </strong
-          >이 하나의 흐름 안에서 자연스럽게 동작하도록 설계했습니다.
+          챗봇 백엔드 전체를 담당했습니다. <strong>8가지 인텐트</strong>를
+          분류해 각 기능으로 분기하고, 의도 분류 → API 호출 → GPT 프롬프트 구성
+          → 응답 파싱 → 프론트 전송 → 결과·세션·메시지 저장까지
+          <strong>전체 처리 파이프라인</strong>을 설계했습니다.
         </p>
 
         <p style="margin-top: 14px">
-          특히 모의투자 데이터를 기반으로 사용자의 거래 내역을 분석하고, 투자
-          성향과 행동 패턴을 반영한 포트폴리오 피드백을 생성하도록 구현했습니다.
+          모의투자 거래 데이터에서
+          <strong>거래 횟수, 보유 종목, 수익률</strong>을 추출해 입력값으로
+          가공하고, 사용자의 투자 성향과 행동 패턴을 반영한
+          <strong>포트폴리오 피드백</strong>을 생성하도록 구현했습니다.
         </p>
 
         <p style="margin-top: 14px">
-          또한 대화가 단발성으로 끝나지 않도록
-          <strong>
-            메시지 저장, 세션 생성·유지·종료, 추천/분석 결과 저장, 에러 이력
-            관리 </strong
-          >까지 함께 구현해 이후 피드백과 모의투자 기능으로 연결될 수 있는
-          구조를 만들었습니다.
+          대화가 단발로 끝나지 않도록
+          <strong>메시지·세션·추천 결과·에러 이력</strong>을 각각 분리 저장해,
+          이후 피드백과 모의투자 기능으로 이어질 수 있는
+          <strong>8개 테이블 구조</strong>를 설계했습니다.
+        </p>
+
+        <p style="margin-top: 14px">
+          프론트엔드와 연동할 때 <strong>API 명세를 먼저 정리하고</strong>
+          필드명·응답 형식을 고정한 뒤 팀원들과 공유해, 추천·분석 결과가 화면에
+          맞게 출력될 수 있도록 조율했습니다.
         </p>
       </section>
 
@@ -434,33 +457,31 @@
         <h2>Flow.</h2>
 
         <div class="flow-box">
-          <div class="flow-line">
-            사용자 입력 → 의도 분류 → 세션 확인 → 키워드 추천 / 종목 분석 / 성향
-            추천 / 포트폴리오 분석 → GPT 응답 → 결과 저장 → 모의투자 및 피드백
-            연결
-          </div>
-
+          <div class="flow-line">요청 처리</div>
           <div class="flow-desc">
-            사용자 투자 데이터와 대화 흐름을 함께 고려해 결과가 실제 투자
-            행동으로 이어지도록 설계했습니다.
+            사용자 입력 → 의도 분류 → 세션 확인 → 기능 분기<br />
+            (키워드 추천 / 종목 분석 / 성향 추천 / 포트폴리오 분석)
           </div>
         </div>
-      </section>
 
-      <section class="detail-section reveal">
-        <p class="quote-big">
-          보여주는 게 아니라,<br />
-          움직이게 만드는 것
-        </p>
-      </section>
+        <div class="flow-box" style="margin-top: 12px">
+          <div class="flow-line">결과 처리</div>
+          <div class="flow-desc">
+            GPT 프롬프트 구성 → 응답 파싱 → 프론트 전송 → 결과·세션·메시지
+            저장<br />
+            포트폴리오 분석 시: 모의투자 거래 내역을 입력값으로 가공 후 GPT 호출
+          </div>
+        </div>
+        <div class="image-block" style="margin-top: 24px">
+          <img src="../assets/finz_chatbot.png" alt="FINZ 챗봇 화면" />
+        </div>
 
-      <section class="detail-section reveal">
-        <h2>How It Works.</h2>
-
-        <div class="image-block">
-          <img src="../assets/finz_chatbot.png" />
+        <div class="image-caption">
+          의도 분류 결과에 따라 추천·분석·피드백으로 분기되는 챗봇 화면
         </div>
       </section>
+
+      <section class="detail-section reveal"></section>
 
       <section class="detail-section reveal">
         <h2>Process.</h2>
@@ -528,10 +549,12 @@
           <div class="typo-item">
             <div class="typo-num">01</div>
             <div class="typo-body">
-              <p class="typo-title">챗봇 의도 분류와 대화 흐름 설계</p>
+              <p class="typo-title">8가지 인텐트 분류와 분기 처리</p>
               <p class="typo-text">
-                추천, 분석, 일반 질의응답이 하나의 흐름 안에서 자연스럽게
-                연결되도록 구성했습니다.
+                MESSAGE, RECOMMEND_PROFILE, RECOMMEND_KEYWORD, STOCK_ANALYZE,
+                PORTFOLIO_ANALYZE, TERM_EXPLAIN, SESSION_END, UNKNOWN 8가지로
+                사용자 입력을 분류하고, 각 인텐트에 맞는 처리 로직으로
+                분기했습니다.
               </p>
             </div>
           </div>
@@ -539,10 +562,12 @@
           <div class="typo-item">
             <div class="typo-num">02</div>
             <div class="typo-body">
-              <p class="typo-title">프롬프트 구성과 GPT 응답 파싱</p>
+              <p class="typo-title">인텐트별 GPT 프롬프트 구성과 응답 파싱</p>
               <p class="typo-text">
-                응답을 그대로 보여주지 않고, 저장과 후속 활용이 가능하도록
-                구조화했습니다.
+                인텐트마다 프롬프트를 다르게 구성하고, GPT 응답을 그대로
+                사용하지 않고 필수 필드를 검증한 뒤 DB 저장과 프론트 전송이
+                가능한 구조로 파싱했습니다. 파싱 실패 시에는 fallback 응답과
+                에러 로그를 남겨 처리가 끊기지 않도록 했습니다.
               </p>
             </div>
           </div>
@@ -551,11 +576,12 @@
             <div class="typo-num">03</div>
             <div class="typo-body">
               <p class="typo-title">
-                키워드 추천 · 종목 분석 · 투자 성향 추천 구현
+                외부 주식 데이터 필터링과 추천 파이프라인
               </p>
               <p class="typo-text">
-                사용자 입력과 투자 성향을 바탕으로 맞춤형 추천과 분석 기능을
-                구현했습니다.
+                외부 API에서 받아온 종목 데이터를 그대로 쓰지 않고,
+                거래정지·상장폐지·누락 종목을 필터링한 뒤 투자 성향 조건에 맞는
+                종목만 GPT에 전달하도록 구성했습니다.
               </p>
             </div>
           </div>
@@ -563,10 +589,13 @@
           <div class="typo-item">
             <div class="typo-num">04</div>
             <div class="typo-body">
-              <p class="typo-title">포트폴리오 분석 및 투자 피드백 생성</p>
+              <p class="typo-title">
+                모의투자 데이터 기반 포트폴리오 피드백 생성
+              </p>
               <p class="typo-text">
-                모의투자 거래 데이터를 기반으로 사용자 투자 성향과 행동을
-                분석하고, 맞춤형 투자 피드백을 생성하도록 구현했습니다.
+                사용자가 포트폴리오 분석을 요청할 때 모의투자 거래 내역에서 거래
+                횟수·보유 종목·수익률을 추출해 GPT 입력값으로 가공하고, 투자
+                성향과 행동 패턴을 반영한 맞춤형 피드백을 생성했습니다.
               </p>
             </div>
           </div>
@@ -574,10 +603,12 @@
           <div class="typo-item">
             <div class="typo-num">05</div>
             <div class="typo-body">
-              <p class="typo-title">메시지 저장과 세션 생성 · 유지 · 종료</p>
+              <p class="typo-title">세션 생성·유지·종료와 메시지 저장</p>
               <p class="typo-text">
-                연속 대화가 가능하도록 세션 상태와 메시지 흐름을 함께
-                관리했습니다.
+                사용자별 세션을 관리하고, 의도가 바뀔 때 기존 세션을 종료하거나
+                새 세션으로 전환하는 로직을 구현했습니다. 메시지와 세션 상태를
+                함께 저장해 연속 대화는 유지하면서 기능 간 문맥이 섞이지 않도록
+                처리했습니다.
               </p>
             </div>
           </div>
@@ -585,10 +616,13 @@
           <div class="typo-item">
             <div class="typo-num">06</div>
             <div class="typo-body">
-              <p class="typo-title">결과 저장과 후속 피드백 연결 구조 설계</p>
+              <p class="typo-title">
+                추천·분석 결과 분리 저장과 8개 테이블 설계
+              </p>
               <p class="typo-text">
-                추천과 분석 결과를 분리 저장해 이후 피드백, 리포트, 행동
-                분석으로 확장할 수 있게 만들었습니다.
+                추천 결과, 분석 데이터, 세션, 메시지, 에러 이력을 테이블을 나눠
+                저장해 이후 피드백·행동 분석·리포트로 확장할 수 있는 구조로
+                설계했습니다.
               </p>
             </div>
           </div>
@@ -596,10 +630,11 @@
           <div class="typo-item">
             <div class="typo-num">07</div>
             <div class="typo-body">
-              <p class="typo-title">예외 처리와 fallback 응답 구성</p>
+              <p class="typo-title">예외 처리와 에러 로그 관리</p>
               <p class="typo-text">
-                GPT 실패 상황에서도 사용자 경험이 끊기지 않도록 대체 응답과 에러
-                로그 저장 로직을 추가했습니다.
+                GPT 호출 실패, 외부 API 응답 지연, 파싱 오류를 상황별로 분기해
+                fallback 메시지를 반환하고, 에러 유형·메시지·발생 시각을 DB에
+                저장해 어떤 단계에서 실패했는지 추적할 수 있도록 구성했습니다.
               </p>
             </div>
           </div>
@@ -738,20 +773,113 @@
         <h2>What I Learned.</h2>
 
         <p class="quote-big">
-          추천을 만드는 것보다,<br />
-          추천 이후의 흐름을 설계하는 일이 더 중요했습니다.
+          백엔드에서는<br />
+          기능 구현보다 <strong>데이터를 안정적으로 처리하는 구조</strong>가 더
+          중요했습니다.
         </p>
 
-        <p class="quote-sub" style="margin-top: 18px">
-          백엔드에서는 응답 자체보다도, 저장 구조와 이후 기능 확장까지 고려한
-          설계가 서비스 경험 전체를 만든다는 점을 배웠습니다.
-        </p>
+        <div class="typo-list">
+          <div class="typo-item">
+            <div class="typo-num">01</div>
+            <div class="typo-body">
+              <p class="typo-title">
+                응답을 만드는 것보다, 저장 가능한 형태로 바꾸는 일이
+                중요했습니다.
+              </p>
+              <p class="typo-text">
+                GPT 응답은 그대로 사용할 수 있는 데이터가 아니라, 형식이 조금만
+                달라져도 파싱과 저장이 실패할 수 있었습니다.
+              </p>
+              <p class="typo-sub">
+                이 프로젝트를 통해 백엔드에서는 단순 응답 생성보다
+                <strong
+                  >응답을 검증하고, 필요한 필드만 추출해, 저장 가능한 구조로
+                  정리하는 작업</strong
+                >이 더 중요하다는 것을 배웠습니다.
+              </p>
+            </div>
+          </div>
 
-        <p class="quote-sub" style="margin-top: 14px">
-          또한 팀 프로젝트에서는 기능을 각자 구현하는 것보다,
-          <strong>명세와 구조를 먼저 맞추고 연결 지점을 정리하는 과정</strong>이
-          협업 효율과 결과물의 완성도를 크게 좌우한다는 점을 경험했습니다.
-        </p>
+          <div class="typo-item">
+            <div class="typo-num">02</div>
+            <div class="typo-body">
+              <p class="typo-title">
+                테이블 분리는 이후 기능 확장과 직접 연결되었습니다.
+              </p>
+              <p class="typo-text">
+                메시지, 세션, 추천 결과, 분석 결과, 에러 로그를 하나로 저장하면
+                조회와 관리가 어려워지고 기능이 섞일 수 있었습니다.
+              </p>
+              <p class="typo-sub">
+                그래서 데이터를 성격별로 분리해 저장하면서,
+                <strong
+                  >DB 설계가 단순 저장이 아니라 이후 피드백, 리포트, 행동
+                  분석까지 고려한 기반</strong
+                >이 된다는 점을 이해하게 되었습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">03</div>
+            <div class="typo-body">
+              <p class="typo-title">
+                세션 관리는 사용자 경험뿐 아니라 기능 안정성과도 연결됐습니다.
+              </p>
+              <p class="typo-text">
+                같은 사용자의 연속 질문에서 이전 의도가 남아 잘못된 기능으로
+                분기되는 문제를 직접 겪었습니다.
+              </p>
+              <p class="typo-sub">
+                이를 통해 백엔드에서는 요청 하나만 처리하는 것이 아니라,
+                <strong
+                  >현재 세션 상태를 기준으로 어떤 기능을 실행할지 제어하는
+                  역할</strong
+                >도 중요하다는 것을 배웠습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">04</div>
+            <div class="typo-body">
+              <p class="typo-title">
+                프론트엔드와 맞지 않는 응답은 결국 동작하지 않는 기능이었습니다.
+              </p>
+              <p class="typo-text">
+                백엔드에서 데이터를 내려줘도, 프론트엔드가 기대하는 필드명과
+                구조가 다르면 화면에서는 제대로 사용할 수 없었습니다.
+              </p>
+              <p class="typo-sub">
+                그래서 API 명세와 응답 형식을 먼저 정리하며,
+                <strong
+                  >백엔드 개발자는 로직만 구현하는 것이 아니라, 다른 계층이
+                  사용할 수 있는 형태로 계약을 맞추는 역할</strong
+                >도 해야 한다는 점을 배웠습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">05</div>
+            <div class="typo-body">
+              <p class="typo-title">
+                예외 처리는 디버깅을 위한 기능이기도 했습니다.
+              </p>
+              <p class="typo-text">
+                GPT 호출 실패, 외부 API 지연, 파싱 오류처럼 원인이 다른 문제들이
+                한 번에 섞여 발생했습니다.
+              </p>
+              <p class="typo-sub">
+                이 과정에서 단순히 에러를 막는 것보다
+                <strong
+                  >어느 단계에서 왜 실패했는지 추적할 수 있도록 로그를 남기는
+                  구조</strong
+                >가 유지보수에 중요하다는 것을 체감했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
 
