@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NBA WORLD | Project Detail</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+
+    <style>
+      .project-detail-wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 56px 20px 100px;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 28px;
+        font-size: 15px;
+        color: var(--subtle);
+      }
+
+      .project-hero h1 {
+        margin: 0;
+        font-size: clamp(42px, 6vw, 72px);
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .project-hero-sub {
+        margin-top: 18px;
+        max-width: 780px;
+        font-size: 20px;
+        line-height: 1.65;
+        letter-spacing: -0.025em;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .detail-section {
+        margin-top: 84px;
+      }
+
+      .detail-section h2 {
+        margin: 0 0 18px;
+        font-size: 27px;
+        letter-spacing: -0.04em;
+      }
+
+      .detail-section p {
+        margin: 0;
+        max-width: 780px;
+        font-size: 17px;
+        line-height: 1.8;
+      }
+
+      .detail-section p + p {
+        margin-top: 14px;
+      }
+
+      .flow-box,
+      .mini-highlight,
+      .simple-card {
+        margin-top: 20px;
+        padding: 22px 24px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: var(--shadow);
+        max-width: 860px;
+      }
+
+      .typo-list {
+        max-width: 860px;
+        margin-top: 8px;
+      }
+
+      .typo-item {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 18px;
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .typo-item:first-child {
+        padding-top: 8px;
+      }
+
+      .typo-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .typo-num {
+        font-size: 22px;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        color: rgba(0, 0, 0, 0.7);
+      }
+
+      .typo-body p {
+        margin: 0;
+        max-width: 780px;
+      }
+
+      .typo-title {
+        font-size: 22px;
+        line-height: 1.4;
+        letter-spacing: -0.035em;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .typo-text {
+        margin-top: 10px !important;
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--text);
+      }
+
+      .typo-sub {
+        margin-top: 10px !important;
+        font-size: 15px;
+        line-height: 1.75;
+        color: #2a2a2a;
+      }
+
+      .quote-sub {
+        margin-top: 14px;
+        max-width: 780px;
+        font-size: 17px;
+        line-height: 1.8;
+        color: #111;
+        font-weight: 500;
+      }
+
+      @media (max-width: 820px) {
+        .project-detail-wrap {
+          padding: 28px 16px 80px;
+        }
+
+        .typo-item {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .typo-num {
+          font-size: 18px;
+        }
+
+        .typo-title {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="project-detail-wrap">
+      <a href="../index.html" class="back-link reveal">← Back to Portfolio</a>
+
+      <!-- HERO -->
+      <section class="project-hero">
+        <p class="eyebrow reveal delay-1">PERSONAL PROJECT</p>
+        <h1 class="reveal delay-2">NBA WORLD</h1>
+
+        <p class="project-hero-sub reveal delay-3">
+          NBA 데이터를 수집하고 관리할 수 있도록 구현한<br />
+          <strong>첫 개인 웹 프로젝트</strong>
+        </p>
+
+        <div class="project-meta reveal delay-4">
+          <span class="chip">Node.js</span>
+          <span class="chip">Express</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">REST API</span>
+          <span class="chip">EJS</span>
+        </div>
+      </section>
+
+      <div class="image-block" style="margin-top: 50px">
+        <img src="../assets/nbaworld_main.png" alt="메인 화면" />
+      </div>
+      <div class="image-caption">메인 화면</div>
+
+      <div class="image-block" style="margin-top: 50px">
+        <img src="../assets/nbaworld_players.png" alt="메인 화면" />
+      </div>
+      <div class="image-caption">선수 화면</div>
+      <!-- OVERVIEW -->
+      <section class="detail-section reveal">
+        <h2>Project Overview.</h2>
+
+        <p class="quote-big">
+          좋아하던 NBA를<br />
+          직접 서비스로 만들어보고 싶었습니다.
+        </p>
+
+        <p class="quote-sub">
+          NBA를 좋아하는 마음에서 시작했지만, 단순한 팬 페이지를 넘어서
+          <strong>데이터를 수집하고 저장하고 보여주는 흐름</strong>을 직접
+          구현하는 것을 목표로 했습니다.
+        </p>
+
+        <p class="quote-sub">
+          Node.js와 Express를 기반으로 서버를 구성하고, MongoDB와 연동해 선수,
+          팀, 사용자 데이터를 관리하며
+          <strong>백엔드 서비스의 기본 구조</strong>를 직접 구현했습니다.
+        </p>
+      </section>
+
+      <!-- WHY -->
+      <section class="detail-section reveal">
+        <h2>Why.</h2>
+
+        <div class="mini-highlight">
+          완벽한 서비스보다,<br />
+          <strong>직접 만들어보는 경험이 더 중요하다고 생각했습니다.</strong>
+        </div>
+
+        <p style="margin-top: 18px">
+          이 프로젝트는 완성도 높은 결과물을 만드는 것보다, 웹 서비스가 어떻게
+          동작하는지를 직접 구현하며 이해하는 데 목적이 있었습니다.
+        </p>
+      </section>
+
+      <!-- WHAT I DID -->
+      <section class="detail-section reveal">
+        <h2>What I Did.</h2>
+
+        <div class="typo-list">
+          <div class="typo-item">
+            <div class="typo-num">01</div>
+            <div class="typo-body">
+              <p class="typo-title">REST API 서버 구현</p>
+              <p class="typo-text">
+                Express를 활용해 클라이언트 요청을 처리하고,
+                <strong>데이터 조회 및 응답을 수행하는 API</strong>를
+                구현했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">02</div>
+            <div class="typo-body">
+              <p class="typo-title">MongoDB 연동</p>
+              <p class="typo-text">
+                선수, 팀, 사용자 데이터를 MongoDB에 저장하고
+                <strong>CRUD 작업</strong>을 통해 데이터를 관리했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">03</div>
+            <div class="typo-body">
+              <p class="typo-title">웹 크롤링 기반 데이터 수집</p>
+              <p class="typo-text">
+                NBA 공식 사이트에서 선수 데이터를 스크레이핑하여 서비스에 활용할
+                수 있도록 구성했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">04</div>
+            <div class="typo-body">
+              <p class="typo-title">사용자 인증 기능 구현</p>
+              <p class="typo-text">
+                로그인, 로그아웃 기능과 함께
+                <strong>비밀번호 해싱 기반 인증 처리</strong>를 구현했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">05</div>
+            <div class="typo-body">
+              <p class="typo-title">MVC 구조로 프로젝트 구성</p>
+              <p class="typo-text">
+                controller / model / view 구조로 분리하여
+                <strong>역할 기반 구조 설계</strong>를 적용했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="detail-section reveal">
+        <h2>Process.</h2>
+
+        <p class="mini-highlight">
+          기능을 만들기 전에,<br />
+          <strong>요청 → 처리 → 응답 흐름을 먼저 이해하려 했습니다.</strong>
+        </p>
+
+        <div class="typo-list">
+          <div class="typo-item">
+            <div class="typo-num">01</div>
+            <div class="typo-body">
+              <p class="typo-title">요청 흐름 이해</p>
+              <p class="typo-text">
+                클라이언트 요청이 서버를 거쳐 DB와 연결되고, 다시 응답으로
+                돌아오는 구조를 직접 구현했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">02</div>
+            <div class="typo-body">
+              <p class="typo-title">데이터 구조 설계</p>
+              <p class="typo-text">
+                MongoDB 스키마를 구성하며 어떤 데이터를 저장하고 어떻게 조회할지
+                고민했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">03</div>
+            <div class="typo-body">
+              <p class="typo-title">API 분리 및 구조화</p>
+              <p class="typo-text">
+                기능별로 controller를 나누어 유지보수 가능한 구조를 만들려고
+                했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TROUBLE -->
+      <section class="detail-section reveal">
+        <h2>Trouble Shooting.</h2>
+
+        <div class="typo-list">
+          <div class="typo-item">
+            <div class="typo-num">01</div>
+            <div class="typo-body">
+              <p class="typo-title">초기 구조 설계 부족</p>
+              <p class="typo-text">
+                처음에는 기능 중심으로만 구현하다 보니 코드가 복잡해졌고, 이후
+                controller 분리로 구조를 개선했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">02</div>
+            <div class="typo-body">
+              <p class="typo-title">데이터 흐름 이해 부족</p>
+              <p class="typo-text">
+                요청과 응답의 흐름을 정확히 이해하지 못해 디버깅에 시간이 오래
+                걸렸지만, 이를 통해 서버 구조를 더 깊이 이해하게 되었습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT I LEARNED -->
+      <section class="detail-section reveal">
+        <h2>What I Learned.</h2>
+
+        <p class="quote-big">
+          처음으로,<br />
+          서비스의 전체 흐름을 경험했습니다.
+        </p>
+
+        <div class="typo-list">
+          <div class="typo-item">
+            <div class="typo-num">01</div>
+            <div class="typo-body">
+              <p class="typo-title">백엔드 구조를 처음 이해했습니다.</p>
+              <p class="typo-text">
+                REST API, DB 연동, 인증까지 연결하며 서버 개발의 기본 구조를
+                경험했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">02</div>
+            <div class="typo-body">
+              <p class="typo-title">데이터와 기능 연결 경험</p>
+              <p class="typo-text">
+                데이터를 단순히 저장하는 것이 아니라 실제 기능으로 연결하는
+                경험을 했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="typo-item">
+            <div class="typo-num">03</div>
+            <div class="typo-body">
+              <p class="typo-title">구조 설계의 중요성</p>
+              <p class="typo-text">
+                코드보다 구조가 더 중요하다는 것을 느꼈고, 이후 프로젝트에서
+                흐름 중심으로 설계하게 된 계기가 되었습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px',
+        },
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
