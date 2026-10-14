@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="시세 수집, 실시간 차트, 사용자 승인 주문, 전략 검증을 하나의 흐름으로 연결한 개인 프로젝트 Surge Trader의 개발 과정입니다." />
+    <title>Surge Trader | Project Detail</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/surge-trader.css" />
+  </head>
+  <body class="surge-case">
+    <a class="skip-link" href="#main-content">본문으로 바로 가기</a>
+    <div class="project-detail-wrap">
+      <nav class="page-nav" aria-label="포트폴리오 탐색">
+        <a class="back-link" href="../index.html#projects">← Back to Portfolio</a>
+        <span class="page-nav-label">PROJECT DETAIL</span>
+      </nav>
+
+      <main id="main-content">
+        <header class="project-hero" id="top">
+          <p class="eyebrow">PERSONAL PROJECT · 2026.07 —</p>
+          <h1>Surge Trader</h1>
+          <p class="project-hero-sub">
+            시세 수집부터 주문 승인과 전략 검증까지,<br />
+            <strong>하나의 흐름으로 연결한 트레이딩 터미널.</strong>
+          </p>
+          <p class="project-status">개인 프로젝트 · 지속 개선 중</p>
+          <div class="chips project-meta" aria-label="기술 스택">
+            <span class="chip">Next.js 16</span>
+            <span class="chip">React 19</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">WebSocket · SSE</span>
+          </div>
+
+          <figure class="product-figure">
+            <a class="product-image-link" href="../assets/surge-trader/auto-trading-center.jpg" target="_blank" rel="noopener" aria-label="Surge Trader 자동매매 설정 화면 크게 보기 (새 탭)">
+              <img src="../assets/surge-trader/auto-trading-center.jpg" width="1568" height="725" fetchpriority="high" alt="Surge Trader 자동매매 센터 설정 화면. 페이퍼 모드가 선택되고 엔진은 정지된 상태이며, 스캐너 소스와 전략 조합을 설정할 수 있습니다." />
+            </a>
+            <figcaption>
+              <span>자동매매 센터 — 모의매매 모드, 스캐너 소스와 전략 조합 설정</span>
+              <a href="../assets/surge-trader/auto-trading-center.jpg" target="_blank" rel="noopener">화면 크게 보기 <span aria-hidden="true">↗</span><span class="sr-only"> (새 탭)</span></a>
+            </figcaption>
+          </figure>
+
+          <nav class="case-nav" aria-label="프로젝트 목차">
+            <a href="#overview">프로젝트 개요</a>
+            <a href="#architecture">데이터 구조</a>
+            <a href="#orders">주문 승인 흐름</a>
+            <a href="#research">전략 검증</a>
+          </nav>
+        </header>
+
+        <section class="detail-section" id="overview" aria-labelledby="why-title">
+          <p class="section-index">01 / WHY</p>
+          <h2 id="why-title">빠르게 움직이는 시장에서,<br />판단의 흐름을 놓치지 않도록.</h2>
+          <p>급등 종목을 찾은 뒤 차트를 확인하고, 진입 조건을 검토하고, 주문 결과를 다시 살펴보는 과정은 서로 이어져 있습니다. 이 과정을 한 화면에서 따라갈 수 있는 도구를 만들고 싶었습니다.</p>
+          <p>Surge Trader는 <strong>미국 주식 급등주 탐색, 기술적 차트, 사용자 승인 기반 주문, 전략 리플레이</strong>를 연결한 트레이딩 터미널입니다. 기능을 연결하면서 가장 많이 고민한 것은 “지금 보는 데이터로 다음 행동을 해도 되는가”였습니다.</p>
+          <dl class="project-facts">
+            <div><dt>대상</dt><dd>미국 주식 탐색과 매매 판단</dd></div>
+            <div><dt>구현 범위</dt><dd>터미널 UI · API · 시세 엔진<br />주문 흐름 · 저장소 · 전략 검증</dd></div>
+            <div><dt>설계 기준</dt><dd>데이터의 최신성<br />주문의 명시적 승인과 추적</dd></div>
+          </dl>
+        </section>
+
+        <section class="detail-section" id="features" aria-labelledby="built-title">
+          <p class="section-index">02 / WHAT I BUILT</p>
+          <h2 id="built-title">탐색에서 복기까지, 하나의 작업 흐름.</h2>
+          <div class="feature-list">
+            <article class="feature-row">
+              <span class="item-number" aria-hidden="true">01</span>
+              <div><h3>시장을 탐색하고 차트로 확인합니다.</h3><p>급등 종목을 스캔하고, 종목별 가격 움직임과 기술적 지표를 같은 터미널에서 확인할 수 있도록 구성했습니다. 실시간 시세와 과거 캔들을 이어 붙이는 데이터 처리도 함께 구현했습니다.</p></div>
+            </article>
+            <article class="feature-row">
+              <span class="item-number" aria-hidden="true">02</span>
+              <div><h3>주문은 검토 가능한 단계로 나눴습니다.</h3><p>수동 주문은 미리보기와 확인을 거칩니다. 자동매매가 제안한 주문은 사용자가 승인할 때 최신 가격과 계좌 상태를 다시 확인하고, 제출 이후에도 주문 상태와 체결 이력을 추적합니다.</p></div>
+            </article>
+            <article class="feature-row">
+              <span class="item-number" aria-hidden="true">03</span>
+              <div><h3>전략의 결과를 다시 살펴봅니다.</h3><p>여러 전략을 같은 종목·같은 캔들로 비교하는 모의 운용과 과거 구간 리플레이를 만들었습니다. 신호가 발생한 시점과 그 이후의 흐름을 나눠 살펴볼 수 있게 했습니다.</p></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="detail-section" id="architecture" aria-labelledby="architecture-title">
+          <p class="section-index">03 / ARCHITECTURE</p>
+          <h2 id="architecture-title">시세의 중심을 서버에 두었습니다.</h2>
+          <p>각 화면이 외부 시세를 따로 구독하면 연결과 데이터 처리도 중복됩니다. 서버에서 Alpaca 스트림을 공유하고, 처리한 데이터를 SSE로 각 클라이언트에 전달하도록 구성했습니다.</p>
+          <div class="architecture-diagram" aria-label="시세, 주문, 저장소의 연결 구조">
+            <p class="diagram-label">MARKET DATA</p>
+            <ol class="data-flow">
+              <li><span class="node-step">01</span><strong>Alpaca</strong><span>WebSocket 시세 구독<br />과거 캔들 조회</span><span class="flow-arrow" aria-hidden="true">→</span></li>
+              <li><span class="node-step">02</span><strong>서버 시세 엔진</strong><span>공유 구독 · 데이터 병합<br />누락 구간 보충 · 최신성 확인</span><span class="flow-arrow" aria-hidden="true">→</span></li>
+              <li><span class="node-step">03</span><strong>트레이딩 터미널</strong><span>SSE로 화면에 전달<br />스캐너 · 차트 · 감시 상태</span></li>
+            </ol>
+            <div class="architecture-support">
+              <div><span class="diagram-label">ORDER FLOW</span><strong>자동매매 제안 → 사용자 승인 → 재검증 → 주문 API</strong><p>미리보기와 제출 단계를 분리하고, 주문 상태를 추적합니다.</p></div>
+              <div><span class="diagram-label">PERSISTENCE</span><strong>PostgreSQL</strong><p>세션, 사용자 설정, 주문 원장을 저장해 상태를 이어갑니다.</p></div>
+            </div>
+          </div>
+          <p class="section-note">감시도 서버가 맡습니다. 서버가 동작하는 동안 브라우저를 닫아도 감시가 이어지며, 서버 시작 시 저장된 활성 설정을 복원하도록 구성했습니다.</p>
+        </section>
+
+        <section class="detail-section" id="realtime" aria-labelledby="realtime-title">
+          <p class="section-index">04 / DATA INTEGRITY</p>
+          <h2 id="realtime-title">도착한 순서와 시장의 시간은 달랐습니다.</h2>
+          <p>실시간 스트림에서는 늦게 도착한 틱, 중복 이벤트, 연결이 끊긴 동안의 빈 구간을 함께 다뤄야 했습니다. 화면에 값을 더하는 것만으로는 차트와 판단 기준을 일관되게 유지하기 어려웠습니다.</p>
+          <div class="decision-list">
+            <article><h3>순서가 뒤바뀐 틱과 중복 이벤트.</h3><p>수신 순서만 따르지 않고 이벤트의 시간과 기존 캔들을 기준으로 병합합니다. 같은 데이터가 다시 들어오는 경우도 처리해 차트 상태를 정리했습니다.</p></article>
+            <article><h3>늦게 온 과거 데이터가 최신 값을 덮는 문제.</h3><p>실시간 틱 뒤에 도착한 과거 시세 응답이 최신 캔들을 덮을 수 있었습니다. 요청 시점과 데이터 변경 버전을 구분하는 워터마크를 두고, 이력을 한 번에 병합하면서 실시간 종가와 거래량이 겹치는 경계를 보존하도록 했습니다.</p></article>
+            <article><h3>화면에 남아 있는 오래된 가격.</h3><p>누락 구간은 과거 캔들로 보충하되, 가격이 표시된다는 이유만으로 최신 데이터로 취급하지 않습니다. 데이터가 오래된 상태에서는 관련 진입 판단과 주문 진행을 제한하는 조건을 두었습니다.</p></article>
+          </div>
+          <p class="pull-quote">실시간 화면의 기준은<br /><strong>“값이 있다”에서 “사용할 수 있는 값이다”로.</strong></p>
+        </section>
+
+        <section class="detail-section" id="orders" aria-labelledby="orders-title">
+          <p class="section-index">05 / APPROVAL FLOW</p>
+          <h2 id="orders-title">승인 시점과 제출 시점 사이도 확인합니다.</h2>
+          <p>주문을 검토하는 동안에도 가격과 계좌 상태는 바뀝니다. 자동매매가 제안한 미국 주식 주문은 <strong>미리보기 → 사용자 승인 → 재검증 → 제출 → 상태 추적</strong>의 단계로 나누어 구현했습니다.</p>
+          <ol class="approval-flow">
+            <li><span class="approval-step">01</span><div><h3>미리보기.</h3><p>주문 조건을 먼저 구성해 사용자가 검토할 수 있게 합니다.</p></div></li>
+            <li><span class="approval-step">02</span><div><h3>사용자 승인.</h3><p>실주문을 진행하기 전에 사용자의 명시적 승인을 받습니다.</p></div></li>
+            <li><span class="approval-step">03</span><div><h3>제출 전 재검증.</h3><p>최신 가격, 계좌 상태, 승인 유효성을 다시 확인합니다. 조건이 맞지 않으면 제출을 막습니다.</p></div></li>
+            <li><span class="approval-step">04</span><div><h3>주문 의도를 먼저 기록.</h3><p>외부 API를 호출하기 전에 주문 의도를 저장합니다. 같은 요청을 식별하는 멱등성 키를 사용해 반복 제출을 구분합니다.</p></div></li>
+            <li><span class="approval-step">05</span><div><h3>주문별 보고로 실행 상태 확인.</h3><p>응답이 없으면 실패로 단정하지 않고 확인이 필요한 상태로 남깁니다. 이후 증권사의 주문별 보고와 대조해 부분 체결을 포함한 진행 상태를 원장에 기록합니다.</p></div></li>
+          </ol>
+          <p class="section-note">응답을 받지 못했어도 주문은 실행되었을 수 있습니다. 이때 바로 재시도하지 않고, 남겨둔 주문 의도와 외부 주문 상태를 대조하는 것이 중요했습니다.</p>
+        </section>
+
+        <section class="detail-section" id="research" aria-labelledby="research-title">
+          <p class="section-index">06 / STRATEGY LAB</p>
+          <h2 id="research-title">전략을 비교하려면 입력부터 같아야 했습니다.</h2>
+          <p>서로 다른 시점이나 종목에서 얻은 결과만 나란히 놓으면 전략의 차이를 해석하기 어렵습니다. 여러 전략에 <strong>같은 종목, 같은 캔들</strong>을 입력하는 비교 구조를 만들고, 모의 운용과 리플레이에서 판단 과정을 확인하도록 했습니다.</p>
+          <div class="research-grid">
+            <article><p class="diagram-label">SAME INPUT</p><h3>비교 조건 맞추기.</h3><p>공통 입력 위에서 전략별 신호와 매매 흐름을 비교합니다. 실험마다 전략 설정의 스냅샷을 고정해, 나중에 설정을 바꿔도 어떤 조건으로 실행했는지 남도록 했습니다.</p></article>
+            <article><p class="diagram-label">WALK-FORWARD</p><h3>미래 데이터 제외하기.</h3><p>과거를 검증할 때도 각 판단 시점까지의 데이터만 사용하도록 구간을 나눴습니다. 이후에 알게 된 정보를 앞선 판단에 섞지 않는 것이 핵심입니다.</p></article>
+          </div>
+          <p>실험의 입력, 설정, 판단을 다시 확인할 수 있는 환경을 만드는 데 집중했습니다. 모의 운용 결과를 해석할 때는 실제 체결과의 차이도 함께 고려했습니다.</p>
+          <aside class="extension-note" aria-label="진행 중인 확장">
+            <span class="diagram-label">IN PROGRESS</span>
+            <p><strong>Bitget 가상자산 선물 모의 운용과 전략 실험으로 확장 중입니다.</strong> 미국 주식의 사용자 승인 기반 실주문 흐름과는 구분해, 실험 단계로 다루고 있습니다.</p>
+          </aside>
+        </section>
+
+        <section class="detail-section" id="verification" aria-labelledby="verification-title">
+          <p class="section-index">07 / VERIFICATION</p>
+          <h2 id="verification-title">정상 흐름 밖의 조건을 검증 대상으로 삼았습니다.</h2>
+          <p>테스트 코드와 검증 시나리오는 데이터의 순서가 달라지거나 요청이 반복되는 상황에 초점을 맞췄습니다. 기능이 연결된 만큼, 각 단계가 어떤 조건에서 멈춰야 하는지도 확인할 수 있게 구성했습니다.</p>
+          <dl class="verification-list">
+            <div><dt>시세 병합</dt><dd>중복 틱, 늦게 도착한 틱, 과거 응답과 실시간 데이터의 충돌을 시세 엔진과 워터마크 테스트에서 다룹니다.</dd></div>
+            <div><dt>주문 경계</dt><dd>오래된 가격, 만료된 승인, 반복 제출 요청과 함께 주문 원장 및 부분 체결 기록을 검증 대상으로 삼았습니다.</dd></div>
+            <div><dt>리플레이</dt><dd>과거 판단 시점에 미래 데이터가 섞이지 않도록 입력 구간과 전략 실행의 경계를 확인합니다.</dd></div>
+            <div><dt>상태 복원</dt><dd>새로고침이나 서버 재시작 이후에도 사용자 설정과 주문 이력을 이어갈 수 있도록 저장과 복원 흐름을 구성했습니다.</dd></div>
+          </dl>
+        </section>
+
+        <section class="detail-section learned-section" id="learned" aria-labelledby="learned-title">
+          <p class="section-index">08 / WHAT I LEARNED</p>
+          <h2 id="learned-title">연결할수록,<br />각 단계의 기준이 중요해졌습니다.</h2>
+          <p>차트, 감시, 주문, 검증을 함께 만들면서 같은 가격이라도 언제 수집했고 어떤 판단에 사용했는지에 따라 의미가 달라진다는 점을 배웠습니다.</p>
+          <p>특히 <strong>데이터의 최신성, 승인의 유효성, 실행 상태의 기록</strong>을 분명히 해야 전체 흐름을 설명할 수 있었습니다. 화면을 만드는 일에서 시작해, 입력부터 실행 결과까지 추적할 수 있는 구조를 설계하는 경험으로 이어졌습니다.</p>
+          <p>앞으로도 데이터 누락과 재연결 같은 운영 상황을 다듬고, 전략 검증에서 확인할 수 있는 범위와 한계를 더 명확하게 정리하려고 합니다.</p>
+        </section>
+      </main>
+
+      <footer class="case-footer">
+        <a class="footer-back" href="../index.html#projects">← 다른 프로젝트 보기</a>
+        <a class="back-to-top" href="#top">맨 위로 <span aria-hidden="true">↑</span></a>
+      </footer>
+    </div>
+  </body>
+</html>

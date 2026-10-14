@@ -1,10 +1,12 @@
 <!doctype html>
-<link rel="stylesheet" href="../styles/main.css" />
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Eunsu Kim | Portfolio</title>
+    <meta name="description" content="백엔드 개발자 김은수의 포트폴리오. Surge Trader, FINZ, Like U 프로젝트를 통해 API, 데이터 처리, 서비스 연결 과정을 소개합니다." />
+    <link rel="stylesheet" href="styles/main.css" />
+    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   </head>
 
   <body>
@@ -249,17 +251,48 @@
               <strong>이후 기능에서 재활용할 수 있는 구조</strong>로
               설계했습니다.
             </p>
+
+            <p>
+              Surge Trader에서는 WebSocket으로 받은 시세를 서버에서 정리하고,
+              SSE로 여러 브라우저에 전달하는 <strong>실시간 데이터 흐름</strong>을
+              구현했습니다.
+            </p>
+
+            <p>
+              주문 요청과 실제 체결을 구분하고,
+              <strong>자동매매 승인 시 재검증·중복 제출 방지·주문 상태 저장</strong>을
+              연결하며 외부 API와 상태를 맞추는 방법을 익혔습니다.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="section reveal">
+      <section class="section reveal" id="projects">
         <div class="divider"></div>
 
         <div class="section-title">
           <h2>Projects.</h2>
         </div>
         <div class="project-list">
+          <a href="projects/surge-trader.html" class="project-row">
+            <div class="project-row-name">Surge Trader</div>
+            <div class="project-row-main">
+              <p class="project-row-desc">
+                <strong>시세 수집부터 주문 승인과 전략 검증까지 연결한 트레이딩 터미널.</strong><br />
+                실시간 시세를 WebSocket으로 수집해 SSE로 전달하고,
+                주식 자동매매의 실주문은 사용자 승인과 재검증을 거치도록 구현했습니다.
+                주문 상태를 저장·추적하고, 같은 데이터로 전략을 비교하는
+                모의매매·백테스트 흐름까지 연결했습니다.
+              </p>
+              <div class="project-row-stack">
+                <span class="chip">Next.js</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">WebSocket · SSE</span>
+              </div>
+            </div>
+            <div class="project-row-link">View →</div>
+          </a>
           <a href="projects/finz.html" class="project-row">
             <div class="project-row-name">FINZ</div>
             <div class="project-row-main">
